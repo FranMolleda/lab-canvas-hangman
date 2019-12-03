@@ -2,17 +2,15 @@ let hangman;
 
 class Hangman {
   constructor() {
-    this.words = [];
-    this.secretWord = ""
+    this.words = ['fer', 'cala','for'];
+    this.secretWord =this.words[Math.floor(Math.random()*this.words.length)]
     this.letters=[]
     this.guessedLetter=[]
     this.errorsLeft = '10'
   }
 
   getWord(words) { 
-    
-  
-    return toString(this.secretWord)
+  return toString(this.secretWord)
   }
 
   checkIfLetter(keyCode) {
@@ -33,9 +31,12 @@ class Hangman {
   }
 
   addCorrectLetter(i) {
-    if(this.secretWord.includes(i)){
-      this.guessedLetter.push(this.letters)
+    
+    if(i >=65 && i <=90){
+       this.guessedLetter.push(charCodeAt(i))
     }
+  
+  
   }
 
   addWrongLetter(letter) {
