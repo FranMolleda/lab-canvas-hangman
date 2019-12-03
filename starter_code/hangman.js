@@ -3,38 +3,38 @@ let hangman;
 class Hangman {
   constructor() {
     this.words = [];
-    this.secretWord = toString(this.secretWord);
+    this.secretWord = ""
     this.letters=[]
     this.guessedLetter=[]
     this.errorsLeft = '10'
   }
 
-  getWord() {
-   if(this.words.length<=1){
-     return toString(words)
-
-   }
+  getWord(words) { 
+    
+  
+    return toString(this.secretWord)
   }
 
   checkIfLetter(keyCode) {
-    if (typeof(keyCode === 'number')) {
+    if(keyCode >=65 && keyCode <=90){
       return true
     }
     return false
+  
+    
   }
 
   checkClickedLetters(key) {
-    if (typeof(key === 'string')) {
-      return true
-    } else if(typeof(key != 'string')){
+    if (this.letters.includes(key)) {
       return false
-
-    }
+    } 
+    this.letters= this.letters.push(key)
+      return true
   }
 
   addCorrectLetter(i) {
-    if(this.checkClickedLetters()=== true){
-      this.guessedLetter.push()
+    if(this.secretWord.includes(i)){
+      this.guessedLetter.push(this.letters)
     }
   }
 
@@ -51,10 +51,10 @@ class Hangman {
   }
 
   checkWinner() {
-    if(this.secretWord===this.guessedLetter){
+    if(this.secretWord.length===this.guessedLetter.length){
       return true
     }
-    else false
+    return false
 
   }
 
