@@ -5,7 +5,7 @@ class Hangman {
     this.words = ['fer', 'cala', 'for'];
     this.secretWord = this.words[Math.floor(Math.random() * this.words.length)]
     this.letters = []
-    this.guessedLetter = ""
+    this.guessedLetter = 'R'
     this.errorsLeft = '10'
   }
 
@@ -32,7 +32,11 @@ class Hangman {
 
   addCorrectLetter(i) {
     let pressLetter = String.fromCharCode(i)
-    this.guessedLetter += pressLetter
+    if (this.secretWord.includes(pressLetter)) {
+      this.guessedLetter += pressLetter
+    }
+    return this.guessedLetter
+
   }
 
   addWrongLetter(letter) {
