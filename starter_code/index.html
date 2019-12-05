@@ -17,7 +17,13 @@
   <div style="text-align:center;">
     <canvas id="hangman" height="800px" width="1200px"></canvas>
   </div>
+  <script type="text/javascript" src="hangman.js">
+  window.addEventListener('keydown',this.check,false);
+
+function check(e) {
+    alert(e.keyCode);
+}
+</script>
   <script type="text/javascript" src="canvas.js"></script>
-  <script type="text/javascript" src="hangman.js"></script>
 </body>
 </html>

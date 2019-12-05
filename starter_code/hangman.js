@@ -2,13 +2,13 @@ let hangman;
 
 class Hangman {
   constructor() {
-    this.words = ['fer', 'cala', 'for'];
+    this.words = ['People', 'Learning', 'Ironhack'];
     this.secretWord = this.words[Math.floor(Math.random() * this.words.length)]
     this.letters = []
-    this.guessedLetter = 'R'
-    this.errorsLeft = '10'
+    this.guessedLetter = ""
+    this.errorsLeft = 10
   }
-
+  
   getWord(words) {
     return toString(this.secretWord)
   }
@@ -31,11 +31,7 @@ class Hangman {
   }
 
   addCorrectLetter(i) {
-    let pressLetter = String.fromCharCode(i)
-    if (this.secretWord.includes(pressLetter)) {
-      this.guessedLetter += pressLetter
-    }
-    return this.guessedLetter
+    this.guessedLetter += this.secretWord[i].toUpperCase()
 
   }
 
@@ -63,8 +59,10 @@ class Hangman {
 
 document.getElementById('start-game-button').onclick = () => {
   hangman = new Hangman();
-};
+  hangmanGame = new HangmanCanvas();
+  hangmanGame.createBoard()
+ };
 
 document.onkeydown = (e) => {
-
+  console.log(String.fromCharCode(e.keyCode)+" --> "+e.keyCode)
 };
