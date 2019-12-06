@@ -9,9 +9,6 @@ class HangmanCanvas {
     this.guessedLetter = this.hangman.guessedLetter
     this.errorsLeft = this.hangman.errorsLeft
     this.letters = this.hangman.letters
-    console.log(this.letters)
-    this.errorsLeft = this.hangman.errorsLeft
-    console.log(this.secretWord)
     this.posX = 0;
     this.posY = 0;
     this.width = 1200;
@@ -24,18 +21,18 @@ class HangmanCanvas {
 
   createBoard = (elapsed) => {
     this.ctx.clearRect(this.posX, this.posY, this.width, this.height);
-
-    this.delta = elapsed - this.past;
-    this.past = elapsed;
-    let fps = 1000 / this.delta;
     this.ctx.lineWidth = 10;
-    this.ctx.font = "20px Arial";
-    this.ctx.fillText("FPS: " + Math.round(fps), 10, 20);
-    window.requestAnimationFrame(this.createBoard);
-    window.requestAnimationFrame(this.drawLines)
-    window.requestAnimationFrame(this.drawHangman)
-    window.requestAnimationFrame(this.writeCorrectLetter)
-    window.requestAnimationFrame(this.writeWrongLetter)
+
+    //this.delta = elapsed - this.past;
+    //this.past = elapsed;
+    //let fps = 1000 / this.delta;
+    //this.ctx.font = "20px Arial";
+    //this.ctx.fillText("FPS: " + Math.round(fps), 10, 20);
+    //window.requestAnimationFrame(this.createBoard);
+    //window.requestAnimationFrame(this.drawLines)
+    //window.requestAnimationFrame(this.drawHangman)
+    //window.requestAnimationFrame(this.writeCorrectLetter)
+    //window.requestAnimationFrame(this.writeWrongLetter)
 
   }
 
@@ -51,21 +48,16 @@ class HangmanCanvas {
   }
 
   writeCorrectLetter = (index) => {
-        this.ctx.font = "30px Arial";
-        this.ctx.fillText('Ejemplo', 410, 670)
-        
+    this.ctx.font = "30px Arial";
+    if (this.secretWord.includes(this.guessedLetter)){
+      this.ctx.fillText(this.secretWord[index], 410, 670)
+    }
+
 
   }
 
   writeWrongLetter = (letter, errorsLeft) => {
-
-    // //for(let i = 0; i<this.secretWord.length; i++){
-    //   if(this.secretWord.includes(this.guessedLetter)){
-    //     this.ctx.font = "30px Arial";
-    //     this.ctx.fillText(this.letters, 500, 370)
-    //     console.log(this.letters)
-    //   }
-    // //}
+    
   }
 
   drawHangman = () => {
@@ -148,7 +140,7 @@ class HangmanCanvas {
       this.ctx.lineTo(525, 225)
       this.ctx.stroke()
     }
-  
+
   }
 
   gameOver = () => {
