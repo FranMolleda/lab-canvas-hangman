@@ -23,17 +23,6 @@ class HangmanCanvas {
     this.ctx.clearRect(this.posX, this.posY, this.width, this.height);
     this.ctx.lineWidth = 10;
 
-    //this.delta = elapsed - this.past;
-    //this.past = elapsed;
-    //let fps = 1000 / this.delta;
-    //this.ctx.font = "20px Arial";
-    //this.ctx.fillText("FPS: " + Math.round(fps), 10, 20);
-    //window.requestAnimationFrame(this.createBoard);
-    //window.requestAnimationFrame(this.drawLines)
-    //window.requestAnimationFrame(this.drawHangman)
-    //window.requestAnimationFrame(this.writeCorrectLetter)
-    //window.requestAnimationFrame(this.writeWrongLetter)
-
   }
 
   drawLines = () => {

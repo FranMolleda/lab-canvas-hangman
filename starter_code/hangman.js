@@ -6,7 +6,6 @@ class Hangman {
     this.secretWord = this.words[Math.floor(Math.random() * this.words.length)]
     this.letters = []
     this.guessedLetter = ""
-    console.log(this.guessedLetter)
     this.errorsLeft = 10
   }
 
@@ -27,7 +26,6 @@ class Hangman {
   checkClickedLetters(key) {
     if (this.letters.includes(key)) {
       this.letters.pop()
-      console.log(this.letters)
       return false
     }
     return true
@@ -35,12 +33,8 @@ class Hangman {
 
   addCorrectLetter(e) {
 
-    console.log(this.guessedLetter)
-    // this.checkClickedLetters(i)
-    if (this.secretWord.includes(this.letters[this.letters.length - 1])) this.guessedLetter += this.letters[this.letters.length - 1]
-    //  this.guessedLetter += this.secretWord[i].toUpperCase()
-
-    
+    if (this.secretWord.includes(this.letters[this.letters.length - 1])) this.guessedLetter += this.letters[this.letters.length - 1].toUpperCase()
+    this.guessedLetter += this.secretWord[e].toUpperCase()
   }
 
   addWrongLetter(letter) {
